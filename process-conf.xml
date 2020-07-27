@@ -1,0 +1,33 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="AWMBIOInsert"
+          class="com.salesforce.dataloader.process.ProcessRunner"
+          singleton="false">
+        <description>Zipcode to Territory Insert - </description>
+        <property name="name" value="AWMBIOInsert"/>
+        <property name="configOverrideMap">
+            <map>
+                <entry key="sfdc.debugMessages" value="true"/>
+                <entry key="sfdc.debugMessagesFile" value="C:\DataLoaderFiles\AWM_BIO\AWM_BIO_Logs\AWM_BIO_Logs.log"/>
+                <entry key="sfdc.endpoint" value="https://test.salesforce.com"/>
+                <entry key="sfdc.username" value="anil.jadhav@cognizant.com.awm"/>
+                <!-- password below has been encrypted using key file, therefore it will not work without the key setting: process.encryptionKeyFile
+                the password is not a valid encrypted value, please generate the real value using encrypt.bat utility -->
+                <entry key="sfdc.password" value="6ade6e13bff966e8d5dd84489c08d61b6e3d1cf4360363cde9b406a1a9865b8998e46f543c8fc91e87d971eeb240521f07032ef89a5a508ad2c597144699be87"/>
+                <entry key="process.encryptionKeyFile" value="C:\Users\iAnil139\.dataloader\dataLoader.key"/>
+                <entry key="sfdc.timeoutSecs" value="600"/>
+                <entry key="sfdc.loadBatchSize" value="200"/>
+                
+                <entry key="sfdc.entity" value="AWM_Zip_to_Territory__c"/>
+                <entry key="process.operation" value="insert"/>
+                <entry key="process.mappingFile" value="C:\DataLoaderFiles\AWM_BIO\AWM_BIO_Mapping"/>
+                <entry key="process.outputSuccess" value="C:\DataLoaderFiles\AWM_BIO\AWM_BIO_Success_Error_Files\AWM_BIO_Success.csv"/>
+                <entry key="process.outputError" value="C:\DataLoaderFiles\AWM_BIO\AWM_BIO_Success_Error_Files\AWM_BIO_Error.csv"/>
+               
+                <entry key="dataAccess.type" value="csvRead"/>
+                <entry key="dataAccess.name" value="C:\DataLoaderFiles\AWM_BIO\AWM_BIO_CSV\AWM_BIO.csv"/>
+            </map>
+        </property>
+    </bean>
+    
+</beans>

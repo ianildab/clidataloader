@@ -1,0 +1,6 @@
+#Mapping values for AWM_BIO Selling Team
+Code=AWM_Zipcode__c
+Label=AWM_Label__c
+Territory=AWM_Territory__c
+StateName=AWM_State_Name__c
+"AWM_BIO"=AWM_Selling_Team__c
